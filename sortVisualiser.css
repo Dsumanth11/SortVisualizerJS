@@ -415,18 +415,3 @@ input[type="range"]:focus::-moz-range-thumb{
     justify-content: center;
   }
 }
-
-
-
-
-/*  */
-
-.testimonials{
-  background-color: #ef8172;
-  text-align:center;
-  color: #fff;
-}
-.carousel-item{
-  /* padding: 7% 15%; */
-  padding:5.0rem;
-}
