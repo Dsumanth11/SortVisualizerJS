@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<head>	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+	<script src="https://kit.fontawesome.com/e7ec6a90f0.js" crossorigin="anonymous"></script>
+	<title>Sort Visualizer</title>
+	<link rel="stylesheet" href="sortVisualiser.css">
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-12">
+				<div class="mb-0 mt-2">
+					<h1 class="main-heading w-100 bg-warning">Sort Visualizer</h1>
+				</div>
+			</div>
+			<div id="CanvaContainer" class="col-12">
+				<canvas id="myCanvas" width="1000" height="500"></canvas>
+				<h1 class="BubbleSortHeading" id="SortAlgoHeading">Bubble Sort Visualizer</h1>
+			</div>
+		</div>
+		<div class="row text-light text-center mt-4 mb-3">
+			<div class="col-12 sortButtonsBiggerDevices">
+				<div class="p-3">
+					<button class="btn btn-lg btn-outline-info" id="bubbleSort">Bubble Sort</button>
+				</div>
+				<div class="p-3">
+					<button class="btn btn-lg btn-outline-warning" id="insertionSort">Insertion Sort</button>
+				</div>
+				<div class="p-3">
+					<button class="btn btn-lg btn-outline-primary" id="selectionSort">Selection Sort</button>
+				</div>
+			</div>
+		</div>
+		<div class="row text-light">
+			<div class="col-12 RandomEle">
+				<hr style="height:1.5px;border-width:0;color:gray;background-color:gray">
+				<button class="btn2" id="SortingBtn">Start Sorting</button>
+				<p class="SwapsPara HideSwaps mt-1" id="no_of_swaps">No of Swaps Done are:</p>
+				<button class="btn1" onclick="RandomiseElements()">Generate Array</button>
+				<br>
+				<br>
+				<input type="range" min="7" max="13" id="sizeofArray"><br>
+				<label class="SwapsPara" for="sizeofArray">Size of the Array</label>
+				<br>
+				<br>
+				<input type="range" min="-100" max="-20" id="speedofArray" step="5"><br>
+				<label for="speedofArray" class="SwapsPara">Speed of sorting</label>
+				<!-- <input type="range" min="20" max="100" id="speedofArray"><br>
+				<label for="speedofArray">Speed of the Sorting</label> -->
+				<br>
+				<br>
+				<input type="radio" id="ASC" name="AscOrDesc" value="Ascending" checked>
+				<label for="ASC" class="mr-3 SwapsPara">Ascending</label>
+				<input type="radio" id="DESC" name="AscOrDesc" value="Descending">
+				<label for="DESC" class="SwapsPara">Descending</label>
+			</div>
+		</div>
+		<div class="row mt-5 mb-5 d-flex flex-column">
+			<div class="col-12 text-center">
+				<h1 class="text-info" style="text-decoration:underline;">Youtube Video</h1>
+			</div>
+			<div class="col-10 col-md-4 m-auto mb-4">
+				<section class="testimonials">
+					<div id="tc" class="carousel slide" data-ride="false">
+					  <div class="carousel-inner">
+						<div class="carousel-item active">
+						  <h2>I no longer have to sniff other dogs for love. I've found the hottest Corgi on TinDog. Woof.</h2>
+						  <div class="embed-responsive embed-responsive-16by9">
+							<iframe
+							  class="embed-responsive-item"
+							  src="https://www.youtube.com/embed/o4bAoo_gFBU?rel=0"
+							  allowfullscreen
+							></iframe>
+						  </div>
+						  <em>Pebbles, New York</em>
+						</div>
+						<div class="carousel-item">
+						  <h2 class="testimonial-text">My dog used to be so lonely, but with TinDog's help, they've found the love of their life. I think.</h2>
+						  <div class="embed-responsive embed-responsive-16by9">
+							<iframe
+							  class="embed-responsive-item"
+							  src="https://www.youtube.com/embed/yCxV0kBpA6M?rel=0"
+							  allowfullscreen
+							></iframe>
+						  </div>
+						  <em>Beverly, Illinois</em>
+						</div>
+					  </div>
+					  <a class="carousel-control-prev" href="#tc" role="button" data-slide="prev">
+						<span class="carousel-control-prev-icon"></span>
+					  </a>
+					  <a class="carousel-control-next" href="#tc" role="button" data-slide="next">
+						<span class="carousel-control-next-icon"></span>
+					  </a>
+					</div>
+				  </section>
+			</div>
+			<!-- <div class="col-10 col-md-4 m-auto mb-4">
+				<br>
+				<div class="embed-responsive embed-responsive-16by9">
+					<iframe
+					  class="embed-responsive-item"
+					  src="https://www.youtube.com/embed/o4bAoo_gFBU?rel=0"
+					  allowfullscreen
+					></iframe>
+				  </div>
+			</div>
+			<div class="col-10 col-md-4 m-auto mb-4 p-2">
+				<br>
+				<div class="embed-responsive embed-responsive-16by9">
+					<iframe
+					  class="embed-responsive-item"
+					  src="https://www.youtube.com/embed/yCxV0kBpA6M?rel=0"
+					  allowfullscreen
+					></iframe>
+				  </div>
+			</div>
+			<div class="col-10 col-md-4 m-auto">
+				<br>
+				<div class="embed-responsive embed-responsive-16by9">
+					<iframe
+					  class="embed-responsive-item"
+					  src="https://www.youtube.com/embed/9oWd4VJOwr0?rel=0"
+					  allowfullscreen
+					></iframe>
+				  </div>
+			</div> -->
+		</div>
+	</div>
+	<div class="container-fluid text-warning mt-5 mb-5 pb-3 pt-3">
+		<div class="row">
+			<div class="col-12 col-md-5 m-auto">
+				<section class="contact section" id="contact">
+					<h2 class="section-title">📧 Feedback</h2>
+					<div class="contact__container bd-grid">
+						<form action="https://formspree.io/f/mbjeljjo" method="POST" class="contact__form">
+							<label for="fullname" class="contact_input"> Your Name</label>
+							<input type="text" id="fullname" placeholder="Full Name" name="fullname" class="contact__input">
+							<label for="email" class="contact_input"> Your E-mail</label>
+							<input type="email" id="email" placeholder="Email" name="email" class="contact__input">
+							<label for="Message" class="contact_input"> Leave Message</label>
+							<textarea name="Message" id="Message" placeholder="Enter Your Query or Message" cols="0" rows="10" class="contact__input"></textarea>
+							<label for="Message" class="contact_input"><b>Click On Submit</b> </label>
+							<input type="submit" value="Submit" class="Submitbtn_form btn bg-primary text-light contact__button button">
+						</form>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+	<div class="footer-section pt-5 pb-5">
+        <div class="container">
+			<div class="row text-primary">
+                <div class="col-12">
+                    <h1 class="follow-us-section-heading text-warning">My accounts</h1>
+                </div>
+                <div class="col-12">
+                    <div class="d-flex flex-row justify-content-center">
+                        <a href="https://www.linkedin.com/in/donthasumanth100/" target="_blank">
+							<div class="follow-us-icon-container">
+								<i class="fab fa-linkedin icon1"></i>
+							</div>
+						</a>
+						<a href="https://www.instagram.com/bittusumanth9/" target="_blank">
+							<div class="follow-us-icon-container">
+								<i class="fab fa-instagram icon1"></i>
+							</div>
+						</a>
+                        <!-- <div class="follow-us-icon-container">
+                            <i class="fab fa-github icon"></i>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center">
+					<!-- <h1 class="text-light">Dontha Sumanth</h1> -->
+                    <h1 class="footer-section-mail-id">sumanth.bittu100@gmail.com</h1>
+                    <!-- <p class="footer-section-address">
+                        123 Ayur Vigyan Nagar, New Delhi, India.
+                    </p> -->
+					<div class="col-12 pb-3 text-center text-light">
+						<i class="fa-solid fa-copyright icon"></i>
+						<span class="copyright_text">by Bittu Sumanth <br>Created using Vanilla JavaScript.</span>
+					</div>
+                </div>
+            </div>
+        </div>
+    </div>
+	<script src="math.js"></script>
+	<script src="column.js"></script>
+	<script src="basicFirst.js"></script>
+	<script src="modification.js"></script>
+</body>
+</html>
